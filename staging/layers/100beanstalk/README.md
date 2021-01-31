@@ -7,7 +7,7 @@ This layer creates the compute resources.
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | aws\_account\_id | The account ID you are building into. | string | n/a | yes |
-| environment | The name of the environment, e.g. Production, Development, etc. | string | `"Development"` | no |
+| environment | The name of the environment, e.g. Production, Development, etc. | string | `"Staging"` | no |
 | region | The AWS region the state should reside in. | string | `"ap-southeast-2"` | yes |
 | stage | Stage, e.g. 'prod', 'staging', 'dev', OR 'source', 'build', 'test', 'deploy', 'release'.. | string | n/a | yes |
 | name | Solution name, e.g. 'app' or 'jenkins'. | string | n/a | yes |
@@ -19,7 +19,7 @@ This layer creates the compute resources.
 | autoscale\_max | Maximum instances to launch. | string | n/a | yes |
 | autoscale\_min | Minumum instances to launch. | string | n/a | yes |
 | instance\_type | EC2 Instances type. | string | n/a | yes |
-
+| acm\_certificate\_arn | Load Balancer SSL certificate ARN. The certificate must be present in AWS Certificate Manager.. | string | n/a | yes |
 
 ## Outputs
 

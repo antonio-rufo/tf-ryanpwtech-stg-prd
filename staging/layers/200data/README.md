@@ -7,7 +7,7 @@ This layer creates the RDS and S3 resources.
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | aws\_account\_id | The account ID you are building into. | string | n/a | yes |
-| environment | The name of the environment, e.g. Production, Development, etc. | string | `"Development"` | no |
+| environment | The name of the environment, e.g. Production, Development, etc. | string | `"Staging"` | no |
 | region | The AWS region the state should reside in. | string | `"ap-southeast-2"` | yes |
 | db\_identifier | The name of the RDS instance. | string | n/a | yes |
 | db\_name | The name of the database to create when the DB instance is created. | string | n/a | yes |

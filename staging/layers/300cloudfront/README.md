@@ -7,10 +7,10 @@ This layer creates the CloudFront distribution.
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | aws\_account\_id | The account ID you are building into. | string | n/a | yes |
-| environment | The name of the environment, e.g. Production, Development, etc. | string | `"Development"` | no |
+| environment | The name of the environment, e.g. Production, Development, etc. | string | `"Staging"` | no |
 | region | The AWS region the state should reside in. | string | `"ap-southeast-2"` | yes |
 | origin\_id | A unique identifier for the origin. | string | n/a | yes |
-
+| acm\_certificate\_arn | SSL certificate ARN. The certificate must be present in AWS Certificate Manager.. | string | n/a | yes |
 
 ## Outputs
 
