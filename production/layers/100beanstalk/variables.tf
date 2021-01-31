@@ -12,7 +12,7 @@ variable "region" {
 
 variable "environment" {
   description = "Name of the environment for the deployment, e.g. Integration, PreProduction, Production, QA, Staging, Test"
-  default     = "Staging"
+  default     = "Production"
 }
 
 ###############################################################################
