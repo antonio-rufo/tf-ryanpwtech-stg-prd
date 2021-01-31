@@ -8,6 +8,6 @@ environment    = "Staging"
 ###############################################################################
 # CloudFront
 ###############################################################################
-origin_id = "cloudfront-alb"
+origin_id = "cloudfront-elb"
 
 acm_certificate_arn = "arn:aws:acm:us-east-1:162198556136:certificate/XXXXXXXXXXXXX"
