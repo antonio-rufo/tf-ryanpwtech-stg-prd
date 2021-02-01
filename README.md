@@ -1,6 +1,13 @@
 ## Summary
 
-* In this architecture, it's broken down into 4 layers. For best practice and for easier management. Each layer has a tfvars file which the user can easily update to customize the resources created.
+This repo will create 2 environments:
+  - Staging
+  - Production
+    * has multi-AZ enabled
+    * minimum of 2 EC2 instances running in the autoscaling group
+    * can spin up to 5 EC2 instances as part of autoscaling group configuration
+
+* In this architecture each environment is broken down into 4 layers. For best practice and for easier management. Each layer has a tfvars file which the user can easily update to customize the resources created.
 * These 4 layers are:
     * **000base** - this layer creates all the networking resources (3 Private and 3 Public subnets).
     * **100beanstalk** - this layer creates the Elastic Beanstalk and its resources (EC2, Autoscaling group, ALB, and all it's required Security Groups)
@@ -47,7 +54,7 @@ $ terraform plan
 $ terraform apply --auto-approve
 ```
 
-* **Step 4: Create your Elastic Beanstalk and its resources .** Update the `terraform.tfvars` file with your account ID and region. Then update `main.tf` with the `state_bucket_id` created in step 2. Update the State Bucket config as well as the Data sources for the remote state buckets.
+* **Step 4: Create your Elastic Beanstalk and its resources .** Update the `terraform.tfvars` file with your account ID, region, and Elastic Beanstalk details. Then update `main.tf` with the `state_bucket_id` created in step 2. Update the State Bucket config as well as the Data sources for the remote state buckets.
 ```shell script
 $ cd ../100beanstalk
 $ vi terraform.tfvars
@@ -60,7 +67,7 @@ $ terraform plan
 $ terraform apply --auto-approve
 ```
 
-* **Step 5: Create your RDS and S3 components.** Update the `terraform.tfvars` file with your account ID and region. Then update `main.tf` with the `state_bucket_id` created in step 2. Update the State Bucket config as well as the Data sources for the remote state.
+* **Step 5: Create your RDS and S3 components.** Update the `terraform.tfvars` file with your account ID, region, S3, and RDS details. Then update `main.tf` with the `state_bucket_id` created in step 2. Update the State Bucket config as well as the Data sources for the remote state.
 ```shell script
 $ cd ../200data
 $ vi terraform.tfvars
@@ -73,7 +80,7 @@ $ terraform plan
 $ terraform apply --auto-approve
 ```
 
-* **Step 6: Create your CloudFront distribution.** Update the `terraform.tfvars` file with your account ID and region. Then update `main.tf` with the `state_bucket_id` created in step 2. Update the State Bucket config as well as the Data sources for the remote state buckets.
+* **Step 6: Create your CloudFront distribution.** Update the `terraform.tfvars` file with your account ID, region, and Cloudfront details. Then update `main.tf` with the `state_bucket_id` created in step 2. Update the State Bucket config as well as the Data sources for the remote state buckets.
 ```shell script
 $ cd ../300cloudfront
 $ vi terraform.tfvars
